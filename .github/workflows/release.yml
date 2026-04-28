@@ -1,0 +1,21 @@
+# Release pipeline — invokes the pleme-actions reusable release workflow.
+# Edit the canonical file at:
+#   pleme-io/pleme-actions/.github/workflows/release-action.yml
+#
+# Triggered on tag push (vX.Y.Z): cross-compiles the binary for 3 targets,
+# creates a GitHub Release, auto-advances the moving major-version tag.
+
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch: {}
+
+jobs:
+  release:
+    uses: pleme-io/pleme-actions/.github/workflows/release-action.yml@main
+    with:
+      action-name: helmworks-render-check
+    permissions:
+      contents: write

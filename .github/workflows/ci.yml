@@ -1,0 +1,14 @@
+# Test gate — invokes the pleme-actions reusable test workflow.
+# Edit the canonical file at:
+#   pleme-io/pleme-actions/.github/workflows/test-action.yml
+
+name: ci
+
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    uses: pleme-io/pleme-actions/.github/workflows/test-action.yml@main
